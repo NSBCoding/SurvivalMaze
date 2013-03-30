@@ -119,11 +119,11 @@ public class Nicolas extends JPanel {
     public boolean SpeedBoost = false;
    
     public Point mouse;
-    
+            
 	public Nicolas(Screen f, Images i){
         //if(i.imagesLoaded){
 		//Rectangles Being Drawn
-		
+						
 		character = new Rectangle(52, 52, charW, charH);
 		FinalBoss = new Rectangle(1103, 66, FBossW, FBossH);
 		Boss = new Rectangle(315, 315, BossW, BossH - 50);
@@ -212,7 +212,8 @@ public class Nicolas extends JPanel {
                 if(e.getKeyCode() == KeyEvent.VK_UP){
                     up = true; }
               
-                if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+                if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
+                	verticalSpeed = 2;
                    //jumping = true;
                     //new Thread(new thread().start();
                      }
@@ -235,6 +236,9 @@ public class Nicolas extends JPanel {
                 } 
        
         
+			
+
+
 			public void keyReleased(KeyEvent e){
                 if(e.getKeyCode() == KeyEvent.VK_D){
 					right = false;
@@ -270,6 +274,9 @@ public class Nicolas extends JPanel {
                     up = false; }
                 if(e.getKeyCode() == KeyEvent.VK_UP){
                     up = false; }
+                if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+                	verticalSpeed = 1; 
+                }
                 
                 if(e.getKeyCode() == KeyEvent.VK_R) {
                     Restart = false;
@@ -401,12 +408,14 @@ public class Nicolas extends JPanel {
             g.drawString("Careful that you can go to the left", 126, 400);
             g.drawString("Through the walls but not right.", 126, 450);
             g.drawString("Be careful not to touch the Busses.", 126, 500);
+            
             g.setColor(Color.BLUE);           
             g.drawString("WASD / arrow", 251,550);
             g.drawString("keys to move", 251, 580);
             g.drawString("Shift in case of panic", 251, 615);
             g.drawString("R to Reset", 251, 650);
-            g.drawString("Escape to Quit", 251, 680);
+            g.drawString("Escape to Quit", 251, 670);
+            g.drawString("Space to Sprint", 251, 690);
         
    //IF Statements        
         
