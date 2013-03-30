@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+
 public class Nicolas extends JPanel {
 	
 	
@@ -56,6 +57,7 @@ public class Nicolas extends JPanel {
     public Rectangle line14;
     public Rectangle Holder1;
     public Rectangle Holder2;
+    public Rectangle Holder3;
    
 
 
@@ -123,7 +125,8 @@ public class Nicolas extends JPanel {
 	public Nicolas(Screen f, Images i){
         //if(i.imagesLoaded){
 		//Rectangles Being Drawn
-						
+	
+		
 		character = new Rectangle(52, 52, charW, charH);
 		FinalBoss = new Rectangle(1103, 66, FBossW, FBossH);
 		Boss = new Rectangle(315, 315, BossW, BossH - 50);
@@ -143,6 +146,7 @@ public class Nicolas extends JPanel {
         InvLine3 = new Rectangle(1066, 450, LineW, 50);
         Holder1 = new Rectangle(235, 300, HolderW, 5);
         Holder2 = new Rectangle(403, 120, HolderW - 20, 5);
+        Holder3 = new Rectangle(889, 100, HolderW - 20, 5);
         Line3 = new Rectangle(109, 0, LineW, 500);
         Line4 = new Rectangle(235, 0, LineW, 300);
         Line5 = new Rectangle(403, 0, LineW, 120);
@@ -150,7 +154,7 @@ public class Nicolas extends JPanel {
         Line7 = new Rectangle(580, 0, LineW, 50);
         Line8 = new Rectangle(671, 0, LineW, 300);
         Line9 = new Rectangle(770, 0, LineW, 200);
-        Line10 = new Rectangle(838, 0, LineW, 500);
+        Line10 = new Rectangle(838, 0, LineW, 50);
         Line11 = new Rectangle(936, 0, LineW, 600);
         Line12 = new Rectangle(1016, 0, LineW, 50);
         Line13 = new Rectangle(1066, 0, LineW, 450);
@@ -163,7 +167,7 @@ public class Nicolas extends JPanel {
         line7 = new Rectangle(580, 80, LineW, 1000);        
         line8 = new Rectangle(671, 400, LineW, 10000);      
         line9 = new Rectangle(770, 250, LineW, 100000);      
-        line10 = new Rectangle(838, 550, LineW, 10000);       
+        line10 = new Rectangle(838, 100, LineW, 10000);       
         line11 = new Rectangle(936, 640, LineW, 100000);      
         line12 = new Rectangle(1016, 100, LineW, 100000);       
         line13 = new Rectangle(1066, 500, LineW, 100000);        
@@ -368,6 +372,7 @@ public class Nicolas extends JPanel {
         g.setColor(Color.GREEN);
         g.fillRect(Holder1.x, Holder1.y, Holder1.width, Holder1.height);
         g.fillRect(Holder2.x, Holder2.y, Holder2.width, Holder2.height);
+        g.fillRect(Holder3.x, Holder3.y, Holder3.width, Holder3.height);
         g.fillRect(Line3.x, Line3.y, Line3.width, Line3.height);
         g.fillRect(Line4.x, Line4.y, Line4.width, Line4.height);
         g.fillRect(Line5.x, Line5.y, Line5.width, Line5.height);
@@ -416,6 +421,7 @@ public class Nicolas extends JPanel {
             g.drawString("R to Reset", 251, 650);
             g.drawString("Escape to Quit", 251, 670);
             g.drawString("Space to Sprint", 251, 690);
+            
         
    //IF Statements        
         
@@ -696,6 +702,11 @@ public class Nicolas extends JPanel {
 
         }
         if(character.intersects(Holder2))  {
+            character.y += 10;
+            StopReset1 = true;
+
+        }
+        if(character.intersects(Holder3))  {
             character.y += 10;
             StopReset1 = true;
 
