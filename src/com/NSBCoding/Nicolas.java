@@ -78,14 +78,8 @@ public class Nicolas extends JPanel {
     public int midHealth = 2;
     public int lowHealth = 1;
     
-
-    public long jumpingTime = 200;
-
-
     public float verticalSpeed = 1f;
-    
-
-    
+        
 	public boolean right = false;
 	public boolean left = false;
 	public boolean mouseActive = false;
@@ -144,9 +138,9 @@ public class Nicolas extends JPanel {
         Bottom = new Rectangle(0, 720, 1280, 1);
         Left = new Rectangle(0, 0, 1, 720);
         Right = new Rectangle(1280, 0, 1, 720);
-        Line = new Rectangle(1180, 302, LineW, LineH);
-        Line2 = new Rectangle(1180, 0, LineW,  Line2H);
-        InvLine = new Rectangle(1180, 242, LineW, LineInv);
+        Line = new Rectangle(1200, 302, LineW, LineH);
+        Line2 = new Rectangle(1200, 0, LineW,  Line2H);
+        InvLine = new Rectangle(1200, 242, LineW, LineInv);
         InvLine2 = new Rectangle(1220, 0, InvRectW, InvRectH);
         InvLine3 = new Rectangle(1066, 450, LineW, 50);
         Holder1 = new Rectangle(235, 300, HolderW, 5);
@@ -233,7 +227,7 @@ public class Nicolas extends JPanel {
                      Restart = true;
                  }
                  if(e.getKeyCode() == KeyEvent.VK_C) {
-                     //mouseActive = true;
+                     mouseActive = true;
                 	 }
                  if(e.getKeyCode() == KeyEvent.VK_SHIFT) {
                 	 up = false;
@@ -295,7 +289,7 @@ public class Nicolas extends JPanel {
                 }
                 isMoving = false;
                 if(e.getKeyCode() == KeyEvent.VK_C) {
-                    //mouseActive = false;
+                    mouseActive = false;
                 	//System.out.println(System.getProperty("user.dir"));
                 	}
 				}
@@ -883,7 +877,7 @@ public class Nicolas extends JPanel {
              g.drawString("You Passed!", 500, 300);
              g.setColor(Color.BLUE);
              g.setFont(g.getFont().deriveFont(30));
-             g.drawString("R to Restart", 500, 500);
+             g.drawString("Close to Restart", 500, 500);
             
         }
       
@@ -916,6 +910,8 @@ public class Nicolas extends JPanel {
             g.setFont(g.getFont().deriveFont(35f));
         	 g.drawString("You Lost!", 440, 260);
         	 g.setColor(Color.BLUE);
+             g.setFont(g.getFont().deriveFont(30));
+             g.drawString("Close to Restart", 500, 500);
              
         }
        
