@@ -74,12 +74,16 @@ public class Nicolas extends JPanel {
     public int BossW = 30;
     public int BossH = 400;
     public int HolderW = 70;
+    public int maxHealth = 3;
+    public int midHealth = 2;
+    public int lowHealth = 1;
     
 
     public long jumpingTime = 200;
 
 
     public float verticalSpeed = 1f;
+    
 
     
 	public boolean right = false;
@@ -119,6 +123,7 @@ public class Nicolas extends JPanel {
     public boolean BDown5 = false;
     public boolean Finished = false;
     public boolean SpeedBoost = false;
+    public boolean lost = false;
    
     public Point mouse;
             
@@ -133,7 +138,7 @@ public class Nicolas extends JPanel {
 		Boss2 = new Rectangle(865, 130, BossW - 10, BossH - 200);
 		Boss3 = new Rectangle(629, 38, BossW - 10, BossH - 300);
 		Boss4 = new Rectangle(952, 106, BossW - 10, BossH - 100);
-		Boss5 = new Rectangle(455, 130, BossW - 10, BossH - 250);
+		Boss5 = new Rectangle(455, 130, BossW - 10, BossH + 600);
 		StartingPoint = new Rectangle(52, 52, charW, charH);
         Top = new Rectangle(0, 0, 1280, 1);
         Bottom = new Rectangle(0, 720, 1280, 1);
@@ -217,7 +222,7 @@ public class Nicolas extends JPanel {
                     up = true; }
               
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
-                	verticalSpeed = 2;
+                	verticalSpeed = 2f;
                    //jumping = true;
                     //new Thread(new thread().start();
                      }
@@ -279,7 +284,7 @@ public class Nicolas extends JPanel {
                 if(e.getKeyCode() == KeyEvent.VK_UP){
                     up = false; }
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-                	verticalSpeed = 1; 
+                	verticalSpeed = 1f; 
                 }
                 
                 if(e.getKeyCode() == KeyEvent.VK_R) {
@@ -331,6 +336,11 @@ public class Nicolas extends JPanel {
 
         }
 
+        if(Restart){
+			maxHealth -= 1;
+		}
+        
+     
  //Invisible lines being colored and filled
         g.setColor(getBackground());
         g.fillRect(InvLine.x, InvLine.y, InvLine.width, InvLine.height);
@@ -350,6 +360,10 @@ public class Nicolas extends JPanel {
         g.fillRect(Boss3.x, Boss3.y, Boss3.width, Boss3.height);
         g.fillRect(Boss4.x, Boss4.y, Boss4.width, Boss4.height);
         g.fillRect(Boss5.x, Boss5.y, Boss5.width, Boss5.height);
+        g.setColor(Color.RED);
+        g.setFont(g.getFont().deriveFont(35f));
+        g.drawString("Life left " + maxHealth, 10, 35);
+        
         
         if(RightSide)    
             g.setColor(Color.BLUE);
@@ -412,7 +426,7 @@ public class Nicolas extends JPanel {
             g.drawString("Without touching the black line", 126, 350);
             g.drawString("Careful that you can go to the left", 126, 400);
             g.drawString("Through the walls but not right.", 126, 450);
-            g.drawString("Be careful not to touch the Busses.", 126, 500);
+            g.drawString("Be careful not to touch the Bosses.", 126, 500);
             
             g.setColor(Color.BLUE);           
             g.drawString("WASD / arrow", 251,550);
@@ -462,7 +476,7 @@ public class Nicolas extends JPanel {
 
         if(FUp){
         	FDown = false;
-        	FinalBoss.y -= 1.5;
+        	FinalBoss.y -= 1;
         }
         if(FDown){
         	FUp = false;
@@ -875,6 +889,7 @@ public class Nicolas extends JPanel {
       
        
         if(character.intersects(StartingPoint)) {
+        Restart = false;
         g.setColor(Color.BLACK);
         g.setFont(g.getFont().deriveFont(25f));
         g.drawString("Press K", 258, 100);
@@ -883,6 +898,27 @@ public class Nicolas extends JPanel {
         g.drawString("WASD / arrow", 251,550);
         g.drawString("keys to move", 251, 580);
         }
+        
+        if(maxHealth <= 0){
+        	 try {
+     			Thread.sleep(300);
+     		} catch (InterruptedException e) {
+     			
+     			e.printStackTrace();
+     		}    	
+			lost = true;
+		}
+        
+        if(lost){
+        	character.x = 52;
+            character.y = 52;
+        	g.setColor(Color.BLACK);
+            g.setFont(g.getFont().deriveFont(35f));
+        	 g.drawString("You Lost!", 440, 260);
+        	 g.setColor(Color.BLUE);
+             
+        }
+       
         
         
   //If Statements for character movement
@@ -914,7 +950,11 @@ public class Nicolas extends JPanel {
 		repaint();
 	}
 
-	
+	public void health(){
+		
+		
+				
+	}
 	
 
 	}
