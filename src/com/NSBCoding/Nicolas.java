@@ -43,6 +43,18 @@ public class Nicolas extends JPanel {
     public Rectangle Line12;
     public Rectangle Line13;
     public Rectangle Line14;   
+    public Rectangle Line15;
+    public Rectangle Line16;
+    public Rectangle Line17;
+    public Rectangle Line18;
+    public Rectangle Line19;
+    public Rectangle Line20;
+    public Rectangle Line21;
+    public Rectangle Line22;
+    public Rectangle Line23;
+    public Rectangle Line24;
+    public Rectangle Line25;
+    public Rectangle Line26;
     public Rectangle line3;
     public Rectangle line4;
     public Rectangle line5;
@@ -55,6 +67,18 @@ public class Nicolas extends JPanel {
     public Rectangle line12;
     public Rectangle line13;
     public Rectangle line14;
+    public Rectangle line15;
+    public Rectangle line16;
+    public Rectangle line17;
+    public Rectangle line18;
+    public Rectangle line19;
+    public Rectangle line20;
+    public Rectangle line21;
+    public Rectangle line22;
+    public Rectangle line23;
+    public Rectangle line24;
+    public Rectangle line25;
+    public Rectangle line26;
     public Rectangle Holder1;
     public Rectangle Holder2;
     public Rectangle Holder3;
@@ -80,6 +104,9 @@ public class Nicolas extends JPanel {
     
     public float verticalSpeed = 1f;
         
+    public boolean Map1 = true;
+    public boolean Map2 = false;
+    public boolean Map3 = false;
 	public boolean right = false;
 	public boolean left = false;
 	public boolean mouseActive = false;
@@ -146,6 +173,7 @@ public class Nicolas extends JPanel {
         Holder1 = new Rectangle(235, 300, HolderW, 5);
         Holder2 = new Rectangle(403, 120, HolderW - 20, 5);
         Holder3 = new Rectangle(889, 100, HolderW - 20, 5);
+        //Map1
         Line3 = new Rectangle(109, 0, LineW, 500);
         Line4 = new Rectangle(235, 0, LineW, 300);
         Line5 = new Rectangle(403, 0, LineW, 120);
@@ -158,7 +186,21 @@ public class Nicolas extends JPanel {
         Line12 = new Rectangle(1016, 0, LineW, 50);
         Line13 = new Rectangle(1066, 0, LineW, 450);
         Line14 = new Rectangle(1131, 0, LineW, 10);
+        //Map2
+        Line15 = new Rectangle(109, 0, LineW, 500);
+        Line16 = new Rectangle(235, 0, LineW, 300);
+        Line17 = new Rectangle(403, 0, LineW, 120);
+        Line18 = new Rectangle(511, 0, LineW, 30);
+        Line19 = new Rectangle(580, 0, LineW, 50);
+        Line20 = new Rectangle(671, 0, LineW, 300);
+        Line21 = new Rectangle(770, 0, LineW, 200);
+        Line22 = new Rectangle(838, 0, LineW, 50);
+        Line23 = new Rectangle(936, 0, LineW, 600);
+        Line24 = new Rectangle(1016, 0, LineW, 50);
+        Line25 = new Rectangle(1066, 0, LineW, 450);
+        Line26 = new Rectangle(1131, 0, LineW, 10);
         
+        //Map1
         line3 = new Rectangle(109, 600, LineW, 1000);
         line4 = new Rectangle(235, 360, LineW, 1000);
         line5 = new Rectangle(403, 180, LineW, 1000);
@@ -171,6 +213,20 @@ public class Nicolas extends JPanel {
         line12 = new Rectangle(1016, 100, LineW, 100000);       
         line13 = new Rectangle(1066, 500, LineW, 100000);        
         line14 = new Rectangle(1131, 60, LineW, 100000);
+        //map2
+        line15 = new Rectangle(109, 600, LineW, 1000);
+        line16 = new Rectangle(235, 360, LineW, 1000);
+        line17 = new Rectangle(403, 180, LineW, 1000);
+        line18 = new Rectangle(511, 80, LineW, 1000);        
+        line19 = new Rectangle(580, 80, LineW, 1000);        
+        line20 = new Rectangle(671, 400, LineW, 10000);      
+        line21 = new Rectangle(770, 250, LineW, 100000);      
+        line22 = new Rectangle(838, 100, LineW, 10000);       
+        line23 = new Rectangle(936, 640, LineW, 100000);      
+        line24 = new Rectangle(1016, 100, LineW, 100000);       
+        line25 = new Rectangle(1066, 500, LineW, 100000);        
+        line26 = new Rectangle(1131, 60, LineW, 100000);
+        
 		
       
     //KeyListener    
@@ -377,6 +433,8 @@ public class Nicolas extends JPanel {
         g.fillRect(Right.x, Right.y, Right.width, Right.height);
         g.fillRect(Line.x, Line.y, Line.width, Line.height);
         g.fillRect(Line2.x, Line2.y, Line2.width, Line2.height);
+        
+        if(Map1){
         g.setColor(Color.GREEN);
         g.fillRect(Holder1.x, Holder1.y, Holder1.width, Holder1.height);
         g.fillRect(Holder2.x, Holder2.y, Holder2.width, Holder2.height);
@@ -405,7 +463,69 @@ public class Nicolas extends JPanel {
         g.fillRect(line13.x, line13.y, line13.width, line13.height);
         g.fillRect(Line14.x, Line14.y, Line14.width, Line14.height);
         g.fillRect(line14.x, line14.y, line14.width, line14.height);
+        }
         
+        if(Map2){
+        	g.setColor(Color.BLACK);
+        	g.fillRect(Holder1.x, Holder1.y, Holder1.width, Holder1.height);
+        	g.fillRect(Holder2.x, Holder2.y, Holder2.width, Holder2.height);
+        	g.fillRect(Holder3.x, Holder3.y, Holder3.width, Holder3.height);
+        	g.fillRect(Line15.x, Line15.y, Line15.width, Line15.height);
+        	g.fillRect(Line16.x, Line16.y, Line16.width, Line16.height);
+        	g.fillRect(Line17.x, Line17.y, Line17.width, Line17.height);
+        	g.fillRect(Line18.x, Line18.y, Line18.width, Line18.height);
+        	g.fillRect(Line19.x, Line19.y, Line19.width, Line19.height);
+        	g.fillRect(Line20.x, Line20.y, Line20.width, Line20.height);
+        	g.fillRect(Line21.x, Line21.y, Line21.width, Line21.height);
+        	g.fillRect(Line22.x, Line22.y, Line22.width, Line22.height);
+        	g.fillRect(Line23.x, Line23.y, Line23.width, Line23.height);
+        	g.fillRect(Line24.x, Line24.y, Line24.width, Line24.height);
+        	g.fillRect(Line25.x, Line25.y, Line25.width, Line25.height);
+        	g.fillRect(Line26.x, Line26.y, Line26.width, Line26.height);
+        	g.fillRect(line15.x, line15.y, line15.width, line15.height);
+        	g.fillRect(line16.x, line16.y, line16.width, line16.height);
+        	g.fillRect(line17.x, line17.y, line17.width, line17.height);
+        	g.fillRect(line18.x, line18.y, line18.width, line18.height);
+        	g.fillRect(line19.x, line19.y, line19.width, line19.height);
+        	g.fillRect(line20.x, line20.y, line20.width, line20.height);
+        	g.fillRect(line21.x, line21.y, line21.width, line21.height);
+        	g.fillRect(line22.x, line22.y, line22.width, line22.height);
+        	g.fillRect(line23.x, line23.y, line23.width, line23.height);
+        	g.fillRect(line24.x, line24.y, line24.width, line24.height);
+        	g.fillRect(line25.x, line25.y, line25.width, line25.height);
+        	g.fillRect(line26.x, line26.y, line26.width, line26.height);
+    
+        }
+        if(Map3){
+            g.setColor(Color.GREEN);
+            g.fillRect(Holder1.x, Holder1.y, Holder1.width, Holder1.height);
+            g.fillRect(Holder2.x, Holder2.y, Holder2.width, Holder2.height);
+            g.fillRect(Holder3.x, Holder3.y, Holder3.width, Holder3.height);
+            g.fillRect(Line3.x, Line3.y, Line3.width, Line3.height);
+            g.fillRect(Line4.x, Line4.y, Line4.width, Line4.height);
+            g.fillRect(Line5.x, Line5.y, Line5.width, Line5.height);
+            g.fillRect(Line6.x, Line6.y, Line6.width, Line6.height);
+            g.fillRect(line3.x, line3.y, line3.width, line3.height);
+            g.fillRect(line4.x, line4.y, line4.width, line4.height);
+            g.fillRect(line5.x, line5.y, line5.width, line5.height);
+            g.fillRect(line6.x, line6.y, line6.width, line6.height);
+            g.fillRect(line7.x, line7.y, line7.width, line7.height);
+            g.fillRect(Line7.x, Line7.y, Line7.width, Line7.height);
+            g.fillRect(Line8.x, Line8.y, Line8.width, Line8.height);
+            g.fillRect(line8.x, line8.y, line8.width, line8.height);
+            g.fillRect(Line9.x, Line9.y, Line9.width, Line9.height);
+            g.fillRect(line9.x, line9.y, line9.width, line9.height);
+            g.fillRect(Line10.x, Line10.y, Line10.width, Line10.height);
+            g.fillRect(line10.x, line10.y, line10.width, line10.height);
+            g.fillRect(Line11.x, Line11.y, Line11.width, Line11.height);
+            g.fillRect(line11.x, line11.y, line11.width, line11.height);
+            g.fillRect(Line12.x, Line12.y, Line12.width, Line12.height);
+            g.fillRect(line12.x, line12.y, line12.width, line12.height);
+            g.fillRect(Line13.x, Line13.y, Line13.width, Line13.height);
+            g.fillRect(line13.x, line13.y, line13.width, line13.height);
+            g.fillRect(Line14.x, Line14.y, Line14.width, Line14.height);
+            g.fillRect(line14.x, line14.y, line14.width, line14.height);
+            }
 
   //Information If statement     
        
@@ -846,6 +966,79 @@ public class Nicolas extends JPanel {
         if(character.intersects(Line14))  {
                 Reset = true;        
                 StopReset1 = true;}
+        if(character.intersects(Line15))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line16))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line17))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line18))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line19))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line20))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line21))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line22))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line23))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line24))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line25))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(Line26))  {
+            Reset = true;
+            StopReset1 = true;}
+        if(character.intersects(line15))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line16))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line17))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line18))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line19))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line20))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line21))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line22))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line23))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line24))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line25))  {
+            Reset = true;             
+            StopReset1 = true;}       
+        if(character.intersects(line26))  {
+            Reset = true;            
+            StopReset1 = true;} 
+        
         
 
        //If Statements for Invisible lines 
@@ -859,7 +1052,8 @@ public class Nicolas extends JPanel {
         }
         
         if(character.intersects(InvLine2)) {                                  
-            try {
+        	
+        	try {
     			Thread.sleep(300);
     		} catch (InterruptedException e) {
     			
@@ -878,6 +1072,28 @@ public class Nicolas extends JPanel {
              g.setColor(Color.BLUE);
              g.setFont(g.getFont().deriveFont(30));
              g.drawString("Close to Restart", 500, 500);
+             Map1 = false;
+             Map2 = true;     
+             
+             if(character.intersects(InvLine)){
+            	 if(Map2){
+            		 Map1 = Map2;
+            		 Map2 = Map3;
+            		 Map3 = true;
+            		 Map2 = false;
+            	 }
+             }
+            	 
+             
+             try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            
+             Finished = false;
+             
             
         }
       
@@ -891,6 +1107,7 @@ public class Nicolas extends JPanel {
         g.setColor(Color.BLUE);
         g.drawString("WASD / arrow", 251,550);
         g.drawString("keys to move", 251, 580);
+        
         }
         
         if(maxHealth <= 0){
@@ -946,9 +1163,13 @@ public class Nicolas extends JPanel {
 		repaint();
 	}
 
-	public void health(){
+	public void NextMap(){
 		
-		
+	if(Map2){
+		if(Finished){
+			System.exit(0);
+		}
+	}
 				
 	}
 	
