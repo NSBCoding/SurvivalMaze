@@ -149,7 +149,6 @@ public class Nicolas extends JPanel {
     public Point mouse;
             
 	public Nicolas(Screen f, Images i){
-        //if(i.imagesLoaded){
 		//Rectangles Being Drawn
 	
 		
@@ -273,9 +272,7 @@ public class Nicolas extends JPanel {
                     up = true; }
               
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
-                	verticalSpeed = 2f;
-                   //jumping = true;
-                    //new Thread(new thread().start();
+                	verticalSpeed = 2f;                 
                      }
                      if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                        System.exit(0);
@@ -370,14 +367,10 @@ public class Nicolas extends JPanel {
 
         }); }
         }
-
-	
-
-    //}
+  
 	
 	@Override
-	public void paintComponent(Graphics g){
-        //if(Main.f.i.imagesLoaded) {
+	public void paintComponent(Graphics g){   
         super.paintComponent(g);
                
         this.setBackground(Color.WHITE);
@@ -1175,18 +1168,8 @@ public class Nicolas extends JPanel {
 		repaint();
 	}
 
-	public void NextMap(){
-		
-	if(Map2){
-		if(Finished){
-			System.exit(0);
-		}
-	}
+	
 				
 	}
 	
-
-	}
-	
-     //}
 
