@@ -170,6 +170,7 @@ public class Nicolas extends JPanel {
         InvLine = new Rectangle(1200, 242, LineW, LineInv);
         InvLine2 = new Rectangle(1220, 0, InvRectW, InvRectH);
         InvLine3 = new Rectangle(1066, 450, LineW, 50);
+        //Map1
         Holder1 = new Rectangle(235, 300, HolderW, 5);
         Holder2 = new Rectangle(403, 120, HolderW - 20, 5);
         Holder3 = new Rectangle(889, 100, HolderW - 20, 5);
@@ -466,10 +467,7 @@ public class Nicolas extends JPanel {
         }
         
         if(Map2){
-        	g.setColor(Color.BLACK);
-        	g.fillRect(Holder1.x, Holder1.y, Holder1.width, Holder1.height);
-        	g.fillRect(Holder2.x, Holder2.y, Holder2.width, Holder2.height);
-        	g.fillRect(Holder3.x, Holder3.y, Holder3.width, Holder3.height);
+        	g.setColor(Color.RED);
         	g.fillRect(Line15.x, Line15.y, Line15.width, Line15.height);
         	g.fillRect(Line16.x, Line16.y, Line16.width, Line16.height);
         	g.fillRect(Line17.x, Line17.y, Line17.width, Line17.height);
@@ -567,6 +565,17 @@ public class Nicolas extends JPanel {
         	 
         }
 
+        if(Map1){
+        	g.setColor(Color.BLUE);
+            g.setFont(g.getFont().deriveFont(25f));
+            g.drawString("Level: 1 ", 253, 25); 
+        }
+        if(Map2){
+        	g.setColor(Color.BLUE);
+            g.setFont(g.getFont().deriveFont(25f));
+            g.drawString("Level: 2 ", 253, 25); 
+        }
+        
        if(Dead) {
             g.setColor(Color.RED);
             g.setFont(g.getFont().deriveFont(25f));
@@ -821,8 +830,9 @@ public class Nicolas extends JPanel {
         if(character.intersects(Bottom))  {
             character.y -= 10;
             StopReset1 = true;
-
         }
+       if(Map1){
+        
         if(character.intersects(Holder1))  {
             character.y += 10;
             StopReset1 = true;
@@ -966,6 +976,8 @@ public class Nicolas extends JPanel {
         if(character.intersects(Line14))  {
                 Reset = true;        
                 StopReset1 = true;}
+      }
+       if(Map2){
         if(character.intersects(Line15))  {
             Reset = true;
             StopReset1 = true;}
@@ -1038,7 +1050,7 @@ public class Nicolas extends JPanel {
         if(character.intersects(line26))  {
             Reset = true;            
             StopReset1 = true;} 
-        
+       }
         
 
        //If Statements for Invisible lines 
