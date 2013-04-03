@@ -1112,6 +1112,9 @@ public class Nicolas extends JPanel {
         g.setColor(Color.BLUE);
         g.drawString("WASD / arrow", 251,550);
         g.drawString("keys to move", 251, 580);
+        g.setFont(g.getFont().deriveFont(50));
+        g.setColor(Color.BLACK);       
+        g.drawString("SurvivalMaze Alpha .2", 500, 300);
         
         }
         
