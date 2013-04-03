@@ -845,7 +845,7 @@ public class Nicolas extends JPanel {
 
         }
         if(character.intersects(Holder3))  {
-            character.y += 10;
+            character.y -= 10;
             StopReset1 = true;
 
         }
