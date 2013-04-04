@@ -99,8 +99,8 @@ public class Nicolas extends JPanel {
     public int BossH = 400;
     public int HolderW = 70;
     public int maxHealth = 3;
-    public int midHealth = 2;
-    public int lowHealth = 1;
+    public int xcoord = 0;
+    public int ycoord = 0;
     
     public float verticalSpeed = 1f;
         
@@ -145,6 +145,8 @@ public class Nicolas extends JPanel {
     public boolean Finished = false;
     public boolean SpeedBoost = false;
     public boolean lost = false;
+    public boolean pause = false;
+    public boolean notPaused = true;
    
     public Point mouse;
             
@@ -236,16 +238,19 @@ public class Nicolas extends JPanel {
 				if(e.getKeyCode() == KeyEvent.VK_D){
 					right = true;
                     RightSide = true;
+                    notPaused = true;		
 
 				}
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT){
                     right = true;
                     RightSide = true;
+                    notPaused = true;
 
                 }
 				if(e.getKeyCode() == KeyEvent.VK_A){
 					left = true;
                     LeftSide = true;
+                    notPaused = true;
 
 				}
                 if(e.getKeyCode() == KeyEvent.VK_K){
@@ -254,6 +259,7 @@ public class Nicolas extends JPanel {
                 if(e.getKeyCode() == KeyEvent.VK_LEFT){
                     left = true;
                     LeftSide = true;
+                    notPaused = true;
 
                 }
                 if(e.getKeyCode() == KeyEvent.VK_M) {
@@ -262,14 +268,18 @@ public class Nicolas extends JPanel {
                     System.out.println(mouse.y);
                 }
                 if(e.getKeyCode() == KeyEvent.VK_S){
-                    down = true; }
+                    down = true;
+                    notPaused = true;}
                 if(e.getKeyCode() == KeyEvent.VK_DOWN){
-                    down = true; }
+                    down = true;
+                    notPaused = true;}
 
                 if(e.getKeyCode() == KeyEvent.VK_W){
-                    up = true; }
+                    up = true; 
+                    notPaused = true;}
                 if(e.getKeyCode() == KeyEvent.VK_UP){
-                    up = true; }
+                    up = true; 
+                    notPaused = true;}
               
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
                 	verticalSpeed = 2f;                 
@@ -283,6 +293,9 @@ public class Nicolas extends JPanel {
                  if(e.getKeyCode() == KeyEvent.VK_C) {
                      mouseActive = true;
                 	 }
+                 if(e.getKeyCode() == KeyEvent.VK_P){
+                	 pause = true;               	 
+                 }
                  if(e.getKeyCode() == KeyEvent.VK_SHIFT) {
                 	 up = false;
                 	 down = false;
@@ -543,11 +556,8 @@ public class Nicolas extends JPanel {
             
         
    //IF Statements        
-        
-            
-            		
 
-            
+
             
         if(DeathScreen){
         	g.setColor(Color.BLACK);
@@ -1114,8 +1124,7 @@ public class Nicolas extends JPanel {
         g.drawString("keys to move", 251, 580);
         g.setFont(g.getFont().deriveFont(50));
         g.setColor(Color.BLACK);       
-        g.drawString("SurvivalMaze Alpha .2", 500, 300);
-        
+        g.drawString("SurvivalMaze InDev.1", 500, 300);
         }
         
         if(maxHealth <= 0){
@@ -1140,6 +1149,37 @@ public class Nicolas extends JPanel {
              
         }
        
+
+       
+        
+        if(pause){
+        	g.setColor(Color.BLACK);
+            g.setFont(g.getFont().deriveFont(35f));
+        	 g.drawString("Pause!", 440, 260);
+        	 xcoord = character.x;
+        	 ycoord = character.y;
+        	 character.x = 440;
+        	 character.y = 260;
+        	 BossMoving2 = false;
+        	 BossMoving3 = false;
+        	 BossMoving4 = false;
+        	 BossMoving5 = false;
+        	 BossMoving = false;
+        	 FMoving = false; }
+        
+        if(notPaused){
+        if(pause){
+        		character.x = xcoord;
+        		character.y = ycoord;
+        	}	
+         pause = false;
+         BossMoving2 = true;
+       	 BossMoving3 = true;
+       	 BossMoving4 = true;
+       	 BossMoving5 = true;
+       	 BossMoving = true;
+       	 FMoving = true;
+        }
         
         
   //If Statements for character movement
