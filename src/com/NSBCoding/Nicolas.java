@@ -99,8 +99,8 @@ public class Nicolas extends JPanel {
     public int BossH = 400;
     public int HolderW = 70;
     public int maxHealth = 3;
-    public int xcoord = 0;
-    public int ycoord = 0;
+    public int midHealth = 2;
+    public int lowHealth = 1;
     
     public float verticalSpeed = 1f;
         
@@ -145,8 +145,6 @@ public class Nicolas extends JPanel {
     public boolean Finished = false;
     public boolean SpeedBoost = false;
     public boolean lost = false;
-    public boolean pause = false;
-    public boolean notPaused = true;
    
     public Point mouse;
             
@@ -188,21 +186,8 @@ public class Nicolas extends JPanel {
         Line12 = new Rectangle(1016, 0, LineW, 50);
         Line13 = new Rectangle(1066, 0, LineW, 450);
         Line14 = new Rectangle(1131, 0, LineW, 10);
-        //Map2
-        Line15 = new Rectangle(109, 0, LineW, 500);
-        Line16 = new Rectangle(235, 0, LineW, 300);
-        Line17 = new Rectangle(403, 0, LineW, 120);
-        Line18 = new Rectangle(511, 0, LineW, 30);
-        Line19 = new Rectangle(580, 0, LineW, 50);
-        Line20 = new Rectangle(671, 0, LineW, 300);
-        Line21 = new Rectangle(770, 0, LineW, 200);
-        Line22 = new Rectangle(838, 0, LineW, 50);
-        Line23 = new Rectangle(936, 0, LineW, 600);
-        Line24 = new Rectangle(1016, 0, LineW, 50);
-        Line25 = new Rectangle(1066, 0, LineW, 450);
-        Line26 = new Rectangle(1131, 0, LineW, 10);
         
-        //Map1
+      //Map1
         line3 = new Rectangle(109, 600, LineW, 1000);
         line4 = new Rectangle(235, 360, LineW, 1000);
         line5 = new Rectangle(403, 180, LineW, 1000);
@@ -215,19 +200,35 @@ public class Nicolas extends JPanel {
         line12 = new Rectangle(1016, 100, LineW, 100000);       
         line13 = new Rectangle(1066, 500, LineW, 100000);        
         line14 = new Rectangle(1131, 60, LineW, 100000);
+        
+        //Map2
+        Line15 = new Rectangle(50, 0, LineW, 500);
+        Line16 = new Rectangle(100, 0, LineW, 300);
+        Line17 = new Rectangle(200, 0, LineW, 120);
+        Line18 = new Rectangle(400, 0, LineW, 30);
+        Line19 = new Rectangle(600, 0, LineW, 50);
+        Line20 = new Rectangle(700, 0, LineW, 300);
+        Line21 = new Rectangle(850, 0, LineW, 200);
+        Line22 = new Rectangle(900, 0, LineW, 50);
+        Line23 = new Rectangle(1000, 0, LineW, 600);
+        Line24 = new Rectangle(1050, 0, LineW, 50);
+        Line25 = new Rectangle(1100, 0, LineW, 450);
+        Line26 = new Rectangle(1140, 0, LineW, 10);
+        
+        
         //map2
-        line15 = new Rectangle(109, 600, LineW, 1000);
-        line16 = new Rectangle(235, 360, LineW, 1000);
-        line17 = new Rectangle(403, 180, LineW, 1000);
-        line18 = new Rectangle(511, 80, LineW, 1000);        
-        line19 = new Rectangle(580, 80, LineW, 1000);        
-        line20 = new Rectangle(671, 400, LineW, 10000);      
-        line21 = new Rectangle(770, 250, LineW, 100000);      
-        line22 = new Rectangle(838, 100, LineW, 10000);       
-        line23 = new Rectangle(936, 640, LineW, 100000);      
-        line24 = new Rectangle(1016, 100, LineW, 100000);       
-        line25 = new Rectangle(1066, 500, LineW, 100000);        
-        line26 = new Rectangle(1131, 60, LineW, 100000);
+        line15 = new Rectangle(50, 600, LineW, 1000);
+        line16 = new Rectangle(100, 360, LineW, 1000);
+        line17 = new Rectangle(200, 180, LineW, 1000);
+        line18 = new Rectangle(400, 80, LineW, 1000);        
+        line19 = new Rectangle(600, 80, LineW, 1000);        
+        line20 = new Rectangle(700, 400, LineW, 10000);      
+        line21 = new Rectangle(850, 250, LineW, 100000);      
+        line22 = new Rectangle(900, 100, LineW, 10000);       
+        line23 = new Rectangle(1000, 640, LineW, 100000);      
+        line24 = new Rectangle(1050, 100, LineW, 100000);       
+        line25 = new Rectangle(1100, 500, LineW, 100000);        
+        line26 = new Rectangle(1140, 60, LineW, 100000);
         
 		
       
@@ -238,19 +239,16 @@ public class Nicolas extends JPanel {
 				if(e.getKeyCode() == KeyEvent.VK_D){
 					right = true;
                     RightSide = true;
-                    notPaused = true;		
 
 				}
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT){
                     right = true;
                     RightSide = true;
-                    notPaused = true;
 
                 }
 				if(e.getKeyCode() == KeyEvent.VK_A){
 					left = true;
                     LeftSide = true;
-                    notPaused = true;
 
 				}
                 if(e.getKeyCode() == KeyEvent.VK_K){
@@ -259,7 +257,6 @@ public class Nicolas extends JPanel {
                 if(e.getKeyCode() == KeyEvent.VK_LEFT){
                     left = true;
                     LeftSide = true;
-                    notPaused = true;
 
                 }
                 if(e.getKeyCode() == KeyEvent.VK_M) {
@@ -268,18 +265,14 @@ public class Nicolas extends JPanel {
                     System.out.println(mouse.y);
                 }
                 if(e.getKeyCode() == KeyEvent.VK_S){
-                    down = true;
-                    notPaused = true;}
+                    down = true; }
                 if(e.getKeyCode() == KeyEvent.VK_DOWN){
-                    down = true;
-                    notPaused = true;}
+                    down = true; }
 
                 if(e.getKeyCode() == KeyEvent.VK_W){
-                    up = true; 
-                    notPaused = true;}
+                    up = true; }
                 if(e.getKeyCode() == KeyEvent.VK_UP){
-                    up = true; 
-                    notPaused = true;}
+                    up = true; }
               
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
                 	verticalSpeed = 2f;                 
@@ -292,9 +285,6 @@ public class Nicolas extends JPanel {
                  }
                  if(e.getKeyCode() == KeyEvent.VK_C) {
                      mouseActive = true;
-                	 }
-                 if(e.getKeyCode() == KeyEvent.VK_P){
-                	 pause = true;               	 
                  }
                  if(e.getKeyCode() == KeyEvent.VK_SHIFT) {
                 	 up = false;
@@ -556,8 +546,7 @@ public class Nicolas extends JPanel {
             
         
    //IF Statements        
-
-
+           
             
         if(DeathScreen){
         	g.setColor(Color.BLACK);
@@ -1149,37 +1138,6 @@ public class Nicolas extends JPanel {
              
         }
        
-
-       
-        
-        if(pause){
-        	g.setColor(Color.BLACK);
-            g.setFont(g.getFont().deriveFont(35f));
-        	 g.drawString("Pause!", 440, 260);
-        	 xcoord = character.x;
-        	 ycoord = character.y;
-        	 character.x = 440;
-        	 character.y = 260;
-        	 BossMoving2 = false;
-        	 BossMoving3 = false;
-        	 BossMoving4 = false;
-        	 BossMoving5 = false;
-        	 BossMoving = false;
-        	 FMoving = false; }
-        
-        if(notPaused){
-        if(pause){
-        		character.x = xcoord;
-        		character.y = ycoord;
-        	}	
-         pause = false;
-         BossMoving2 = true;
-       	 BossMoving3 = true;
-       	 BossMoving4 = true;
-       	 BossMoving5 = true;
-       	 BossMoving = true;
-       	 FMoving = true;
-        }
         
         
   //If Statements for character movement
