@@ -558,12 +558,12 @@ public class Nicolas extends JPanel {
         }
 
         if(Map1){
-        	g.setColor(Color.BLUE);
+        	g.setColor(Color.BLACK);
             g.setFont(g.getFont().deriveFont(25f));
-            g.drawString("Level: 1 ", 253, 25); 
+            g.drawString("Level: 1 ", 253, 25);
         }
         if(Map2){
-        	g.setColor(Color.BLUE);
+        	g.setColor(Color.BLACK);
             g.setFont(g.getFont().deriveFont(25f));
             g.drawString("Level: 2 ", 253, 25); 
         }
