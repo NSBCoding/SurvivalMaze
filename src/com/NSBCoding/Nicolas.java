@@ -145,6 +145,7 @@ public class Nicolas extends JPanel {
     public boolean Finished = false;
     public boolean SpeedBoost = false;
     public boolean lost = false;
+    public boolean StartScreen = true;
    
     public Point mouse;
             
@@ -285,6 +286,9 @@ public class Nicolas extends JPanel {
                  }
                  if(e.getKeyCode() == KeyEvent.VK_C) {
                      mouseActive = true;
+                 }
+                 if(e.getKeyCode() == KeyEvent.VK_G) {
+                     StartScreen = false;
                  }
                  if(e.getKeyCode() == KeyEvent.VK_SHIFT) {
                 	 up = false;
@@ -523,7 +527,37 @@ public class Nicolas extends JPanel {
 
   //Information If statement     
        
-
+        if(StartScreen){
+        	character.x = 52;
+            character.y = 52;
+            g.setColor(Color.BLACK);
+            g.setFont(g.getFont().deriveFont(25f));
+            g.drawString("Your goal", 123, 140);
+            g.drawString("is to get", 126, 200);
+            g.drawString("your character", 126, 250);
+            g.drawString("to the SafeZone", 126, 300);
+            g.drawString("Without touching the black line", 126, 350);
+            g.drawString("Careful that you can go to the left", 126, 400);
+            g.drawString("Through the walls but not right.", 126, 450);
+            g.drawString("Be careful not to touch the Bosses.", 126, 500);
+            
+            g.setColor(Color.BLUE);           
+            g.drawString("WASD / arrow", 870, 300);
+            g.drawString("keys to move", 870, 350);
+            g.drawString("Shift in case of panic", 870, 400);
+            g.drawString("R to Reset", 870, 450);
+            g.drawString("Escape to Quit", 870, 500);
+            g.drawString("Space to Sprint", 870, 550);
+            
+            g.setColor(Color.BLUE);
+            g.setFont(g.getFont().deriveFont(50));
+            g.setColor(Color.BLACK);       
+            g.drawString("SurvivalMaze InDev.1", 500, 300);
+            g.setFont(g.getFont().deriveFont(25));
+            g.setColor(Color.BLACK);
+            g.drawString("G to Start", 700, 400);
+        }
+        
         if(KeysIns){
             g.setColor(Color.BLACK);
             g.setFont(g.getFont().deriveFont(25f));
@@ -547,7 +581,7 @@ public class Nicolas extends JPanel {
         
    //IF Statements        
            
-            
+          
         if(DeathScreen){
         	g.setColor(Color.BLACK);
         	g.setFont(g.getFont().deriveFont(25f));
@@ -1104,16 +1138,15 @@ public class Nicolas extends JPanel {
        
         if(character.intersects(StartingPoint)) {
         Restart = false;
-        g.setColor(Color.BLACK);
+        if(StartScreen == false){ 
+        g.setColor(Color.BLACK);       
         g.setFont(g.getFont().deriveFont(25f));
         g.drawString("Press K", 258, 100);
         g.drawString("for Instructions", 260, 145);
         g.setColor(Color.BLUE);
         g.drawString("WASD / arrow", 251,550);
-        g.drawString("keys to move", 251, 580);
-        g.setFont(g.getFont().deriveFont(50));
-        g.setColor(Color.BLACK);       
-        g.drawString("SurvivalMaze InDev.1", 500, 300);
+        g.drawString("keys to move", 251, 580);    
+        }
         }
         
         if(maxHealth <= 0){
