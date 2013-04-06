@@ -101,6 +101,7 @@ public class Nicolas extends JPanel {
     public int maxHealth = 3;
     public int midHealth = 2;
     public int lowHealth = 1;
+    public int Sprint = 10;
     
     public float verticalSpeed = 1f;
         
@@ -146,7 +147,9 @@ public class Nicolas extends JPanel {
     public boolean SpeedBoost = false;
     public boolean lost = false;
     public boolean StartScreen = true;
-   
+
+    
+    
     public Point mouse;
             
 	public Nicolas(Screen f, Images i){
@@ -193,7 +196,7 @@ public class Nicolas extends JPanel {
         line4 = new Rectangle(235, 360, LineW, 1000);
         line5 = new Rectangle(403, 180, LineW, 1000);
         line6 = new Rectangle(511, 80, LineW, 1000);        
-        line7 = new Rectangle(580, 80, LineW, 1000);        
+        line7 = new Rectangle(580, 85, LineW, 1000);        
         line8 = new Rectangle(671, 400, LineW, 10000);      
         line9 = new Rectangle(770, 250, LineW, 100000);      
         line10 = new Rectangle(838, 100, LineW, 10000);       
@@ -276,7 +279,8 @@ public class Nicolas extends JPanel {
                     up = true; }
               
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
-                	verticalSpeed = 2f;                 
+                	verticalSpeed = 2f;
+                	
                      }
                      if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                        System.exit(0);
@@ -530,7 +534,7 @@ public class Nicolas extends JPanel {
         if(StartScreen){
         	character.x = 52;
             character.y = 52;
-            g.setColor(Color.BLACK);
+            g.setColor(Color.DARK_GRAY);
             g.setFont(g.getFont().deriveFont(25f));
             g.drawString("Your goal", 123, 140);
             g.drawString("is to get", 126, 200);
@@ -550,14 +554,16 @@ public class Nicolas extends JPanel {
             g.drawString("Space to Sprint", 870, 550);
             
             g.setColor(Color.BLUE);
-            g.setFont(g.getFont().deriveFont(50));
-            g.setColor(Color.BLACK);       
-            g.drawString("SurvivalMaze InDev.1", 500, 300);
+            g.setFont(g.getFont().deriveFont(50));       
+            g.drawString("SurvivalMaze", 500, 300);
+            g.setFont(g.getFont().deriveFont(25));
+            g.drawString("InDev.2", 600, 325);
             g.setFont(g.getFont().deriveFont(25));
             g.setColor(Color.BLACK);
             g.drawString("G to Start", 700, 400);
         }
-        
+
+      
         if(KeysIns){
             g.setColor(Color.BLACK);
             g.setFont(g.getFont().deriveFont(25f));
