@@ -279,8 +279,7 @@ public class Nicolas extends JPanel {
                     up = true; }
               
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
-                	verticalSpeed = 2f;
-                	
+                	verticalSpeed = 2f;	
                      }
                      if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                        System.exit(0);
@@ -586,7 +585,7 @@ public class Nicolas extends JPanel {
             
         
    //IF Statements        
-           
+            
           
         if(DeathScreen){
         	g.setColor(Color.BLACK);
@@ -1115,7 +1114,7 @@ public class Nicolas extends JPanel {
              g.drawString("You Passed!", 500, 300);
              g.setColor(Color.BLUE);
              g.setFont(g.getFont().deriveFont(30));
-             g.drawString("Close to Restart", 500, 500);
+             g.drawString("Press Esc to Restart", 500, 500);
              Map1 = false;
              Map2 = true;     
              
@@ -1150,8 +1149,8 @@ public class Nicolas extends JPanel {
         g.drawString("Press K", 258, 100);
         g.drawString("for Instructions", 260, 145);
         g.setColor(Color.BLUE);
-        g.drawString("WASD / arrow", 251,550);
-        g.drawString("keys to move", 251, 580);    
+        g.drawString("WASD / arrow", 870, 300);
+        g.drawString("keys to move", 870, 350);    
         }
         }
         
@@ -1170,10 +1169,10 @@ public class Nicolas extends JPanel {
             character.y = 52;
         	g.setColor(Color.BLACK);
             g.setFont(g.getFont().deriveFont(35f));
-        	 g.drawString("You Lost!", 440, 260);
+        	 g.drawString("You Lost!", 593, 260);
         	 g.setColor(Color.BLUE);
              g.setFont(g.getFont().deriveFont(30));
-             g.drawString("Close to Restart", 500, 500);
+             g.drawString("Press Esc to Restart", 500, 500);
              
         }
        
