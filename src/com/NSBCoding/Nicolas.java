@@ -383,7 +383,7 @@ public class Nicolas extends JPanel {
 	public void paintComponent(Graphics g){   
         super.paintComponent(g);
                
-        this.setBackground(Color.WHITE);
+        this.setBackground(Color.BLACK);
         if(Reset){
             character.x -= 10;
            
@@ -430,7 +430,7 @@ public class Nicolas extends JPanel {
   //Rectangle Being colored and filled
 
         
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.fillRect(Top.x, Top.y, Top.width, Top.height);
         g.fillRect(Bottom.x, Bottom.y, Bottom.width, Bottom.height);
         g.fillRect(Left.x, Left.y, Left.width, Left.height);
@@ -439,7 +439,7 @@ public class Nicolas extends JPanel {
         g.fillRect(Line2.x, Line2.y, Line2.width, Line2.height);
         
         if(Map1){
-        g.setColor(Color.GREEN);
+        g.setColor(Color.YELLOW);
         g.fillRect(Holder1.x, Holder1.y, Holder1.width, Holder1.height);
         g.fillRect(Holder2.x, Holder2.y, Holder2.width, Holder2.height);
         g.fillRect(Holder3.x, Holder3.y, Holder3.width, Holder3.height);
@@ -470,7 +470,7 @@ public class Nicolas extends JPanel {
         }
         
         if(Map2){
-        	g.setColor(Color.RED);
+        	g.setColor(Color.YELLOW);
         	g.fillRect(Line15.x, Line15.y, Line15.width, Line15.height);
         	g.fillRect(Line16.x, Line16.y, Line16.width, Line16.height);
         	g.fillRect(Line17.x, Line17.y, Line17.width, Line17.height);
@@ -498,7 +498,7 @@ public class Nicolas extends JPanel {
     
         }
         if(Map3){
-            g.setColor(Color.GREEN);
+            g.setColor(Color.YELLOW);
             g.fillRect(Holder1.x, Holder1.y, Holder1.width, Holder1.height);
             g.fillRect(Holder2.x, Holder2.y, Holder2.width, Holder2.height);
             g.fillRect(Holder3.x, Holder3.y, Holder3.width, Holder3.height);
@@ -533,7 +533,7 @@ public class Nicolas extends JPanel {
         if(StartScreen){
         	character.x = 52;
             character.y = 52;
-            g.setColor(Color.DARK_GRAY);
+            g.setColor(Color.LIGHT_GRAY);
             g.setFont(g.getFont().deriveFont(25f));
             g.drawString("Your goal", 123, 140);
             g.drawString("is to get", 126, 200);
@@ -544,7 +544,7 @@ public class Nicolas extends JPanel {
             g.drawString("Through the walls but not right.", 126, 450);
             g.drawString("Be careful not to touch the Bosses.", 126, 500);
             
-            g.setColor(Color.BLUE);           
+            g.setColor(Color.GREEN);           
             g.drawString("WASD / arrow", 870, 300);
             g.drawString("keys to move", 870, 350);
             g.drawString("Shift in case of panic", 870, 400);
@@ -552,19 +552,19 @@ public class Nicolas extends JPanel {
             g.drawString("Escape to Quit", 870, 500);
             g.drawString("Space to Sprint", 870, 550);
             
-            g.setColor(Color.BLUE);
+            g.setColor(Color.WHITE);
             g.setFont(g.getFont().deriveFont(50));       
             g.drawString("SurvivalMaze", 500, 300);
             g.setFont(g.getFont().deriveFont(25));
             g.drawString("InDev.2", 600, 325);
             g.setFont(g.getFont().deriveFont(25));
-            g.setColor(Color.BLACK);
+            g.setColor(Color.WHITE);
             g.drawString("G to Start", 700, 400);
         }
 
       
         if(KeysIns){
-            g.setColor(Color.BLACK);
+        	g.setColor(Color.LIGHT_GRAY);
             g.setFont(g.getFont().deriveFont(25f));
             g.drawString("Your goal", 123, 140);
             g.drawString("is to get", 126, 200);
@@ -575,20 +575,20 @@ public class Nicolas extends JPanel {
             g.drawString("Through the walls but not right.", 126, 450);
             g.drawString("Be careful not to touch the Bosses.", 126, 500);
             
-            g.setColor(Color.BLUE);           
-            g.drawString("WASD / arrow", 251,550);
-            g.drawString("keys to move", 251, 580);
-            g.drawString("Shift in case of panic", 251, 615);
-            g.drawString("R to Reset", 251, 650);
-            g.drawString("Escape to Quit", 251, 670);
-            g.drawString("Space to Sprint", 251, 690);
+            g.setColor(Color.GREEN);           
+            g.drawString("WASD / arrow", 870, 300);
+            g.drawString("keys to move", 870, 350);
+            g.drawString("Shift in case of panic", 870, 400);
+            g.drawString("R to Reset", 870, 450);
+            g.drawString("Escape to Quit", 870, 500);
+            g.drawString("Space to Sprint", 870, 550);
             
         
    //IF Statements        
             
           
         if(DeathScreen){
-        	g.setColor(Color.BLACK);
+        	g.setColor(Color.WHITE);
         	g.setFont(g.getFont().deriveFont(25f));
         	g.drawString("Press R to restart", 496, 300);
         	isMoving = false;
@@ -597,12 +597,12 @@ public class Nicolas extends JPanel {
         }
 
         if(Map1){
-        	g.setColor(Color.BLACK);
+        	g.setColor(Color.WHITE);
             g.setFont(g.getFont().deriveFont(25f));
             g.drawString("Level: 1 ", 253, 25);
         }
         if(Map2){
-        	g.setColor(Color.BLACK);
+        	g.setColor(Color.WHITE);
             g.setFont(g.getFont().deriveFont(25f));
             g.drawString("Level: 2 ", 253, 25); 
         }
@@ -1108,11 +1108,11 @@ public class Nicolas extends JPanel {
         if(Finished){
         	character.x = 52;
             character.y = 52;
-        	g.setColor(Color.BLACK);
+        	g.setColor(Color.WHITE);
             g.setFont(g.getFont().deriveFont(35f));
         	 g.drawString("Thank you for Playing!", 440, 260);
              g.drawString("You Passed!", 500, 300);
-             g.setColor(Color.BLUE);
+             g.setColor(Color.GREEN);
              g.setFont(g.getFont().deriveFont(30));
              g.drawString("Press Esc to Restart", 500, 500);
              Map1 = false;
@@ -1144,11 +1144,11 @@ public class Nicolas extends JPanel {
         if(character.intersects(StartingPoint)) {
         Restart = false;
         if(StartScreen == false){ 
-        g.setColor(Color.BLACK);       
+        g.setColor(Color.LIGHT_GRAY);       
         g.setFont(g.getFont().deriveFont(25f));
         g.drawString("Press K", 258, 100);
         g.drawString("for Instructions", 260, 145);
-        g.setColor(Color.BLUE);
+        g.setColor(Color.GREEN);
         g.drawString("WASD / arrow", 870, 300);
         g.drawString("keys to move", 870, 350);    
         }
@@ -1167,10 +1167,10 @@ public class Nicolas extends JPanel {
         if(lost){
         	character.x = 52;
             character.y = 52;
-        	g.setColor(Color.BLACK);
+        	g.setColor(Color.WHITE);
             g.setFont(g.getFont().deriveFont(35f));
         	 g.drawString("You Lost!", 593, 260);
-        	 g.setColor(Color.BLUE);
+        	 g.setColor(Color.GREEN);
              g.setFont(g.getFont().deriveFont(30));
              g.drawString("Press Esc to Restart", 500, 500);
              
