@@ -85,8 +85,8 @@ public class Nicolas extends JPanel {
    
 
 
-	public int charW = 25;
-	public int charH = 25;
+	public int charW = 20;
+	public int charH = 28;
     public int LineH = 720;
     public int LineW = 5;
     public int Line2H = 242;
@@ -101,7 +101,6 @@ public class Nicolas extends JPanel {
     public int maxHealth = 3;
     public int midHealth = 2;
     public int lowHealth = 1;
-    public int Sprint = 10;
     
     public float verticalSpeed = 1f;
         
@@ -147,16 +146,21 @@ public class Nicolas extends JPanel {
     public boolean SpeedBoost = false;
     public boolean lost = false;
     public boolean StartScreen = true;
+    public boolean upRight = false;
+    public boolean upLeft = false;
+    public boolean downRight = false;
+    public boolean downLeft = false;
+    public boolean moving = false;
+    public boolean flashingText = true;
+    
 
-    
-    
     public Point mouse;
             
 	public Nicolas(Screen f, Images i){
 		//Rectangles Being Drawn
 	
 		
-		character = new Rectangle(52, 52, charW, charH);
+		character = new Rectangle(50, 50, charW, charH);
 		FinalBoss = new Rectangle(1103, 66, FBossW, FBossH);
 		Boss = new Rectangle(315, 315, BossW, BossH - 50);
 		Boss2 = new Rectangle(865, 130, BossW - 10, BossH - 200);
@@ -243,16 +247,19 @@ public class Nicolas extends JPanel {
 				if(e.getKeyCode() == KeyEvent.VK_D){
 					right = true;
                     RightSide = true;
+                    moving = true;
 
 				}
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT){
                     right = true;
                     RightSide = true;
+                    moving = true;
 
                 }
 				if(e.getKeyCode() == KeyEvent.VK_A){
 					left = true;
                     LeftSide = true;
+                    moving = true;
 
 				}
                 if(e.getKeyCode() == KeyEvent.VK_K){
@@ -261,6 +268,7 @@ public class Nicolas extends JPanel {
                 if(e.getKeyCode() == KeyEvent.VK_LEFT){
                     left = true;
                     LeftSide = true;
+                    moving = true;
 
                 }
                 if(e.getKeyCode() == KeyEvent.VK_M) {
@@ -269,17 +277,23 @@ public class Nicolas extends JPanel {
                     System.out.println(mouse.y);
                 }
                 if(e.getKeyCode() == KeyEvent.VK_S){
-                    down = true; }
+                    down = true; 
+                    moving = true;}
+                
                 if(e.getKeyCode() == KeyEvent.VK_DOWN){
-                    down = true; }
+                    down = true; 
+                    moving = true;}
 
                 if(e.getKeyCode() == KeyEvent.VK_W){
-                    up = true; }
+                    up = true; 
+                    moving = true;}
                 if(e.getKeyCode() == KeyEvent.VK_UP){
-                    up = true; }
+                    up = true;
+                    moving = true;}
               
-                if(e.getKeyCode() == KeyEvent.VK_SPACE) {                	
-                	verticalSpeed = 2f;	
+                if(e.getKeyCode() == KeyEvent.VK_SPACE) {  
+                	
+                	
                      }
                      if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                        System.exit(0);
@@ -311,36 +325,53 @@ public class Nicolas extends JPanel {
 					right = false;
                     mouseActive = false;
                     RightSide = false;
+                    downRight = false;
+                    upRight = false;
+                    moving = false;
 
 				}
                 if(e.getKeyCode() == KeyEvent.VK_RIGHT){
                     right = false;
                     mouseActive = false;
                     RightSide = false;
+                    downRight = false;
+                    upRight = false;
+                    moving = false;
 
                 }
 
 				if(e.getKeyCode() == KeyEvent.VK_A){
 					left = false;
 		           mouseActive = false;
-                    LeftSide = false;   }                
+                    LeftSide = false;  
+                    downLeft = false;
+                    upLeft = false;
+                    moving = false;}                
                 if(e.getKeyCode() == KeyEvent.VK_LEFT){
                     left = false;
                     mouseActive = false;
-                    LeftSide = false;   }
+                    LeftSide = false; 
+                    downLeft = false;
+                    upLeft = false;
+                    moving = false;}
                 if(e.getKeyCode() == KeyEvent.VK_M) {
                     mouseActive = false;
+                    moving = false;
                 }
 
                 if(e.getKeyCode() == KeyEvent.VK_S){
-                    down = false; }
+                    down = false;
+                    moving = false;}
                 if(e.getKeyCode() == KeyEvent.VK_DOWN){
-                    down = false; }
+                    down = false;
+                    moving = false;}
 
                 if(e.getKeyCode() == KeyEvent.VK_W){
-                    up = false; }
+                    up = false; 
+                    moving = false;}
                 if(e.getKeyCode() == KeyEvent.VK_UP){
-                    up = false; }
+                    up = false; 
+                    moving = false;}
                 if(e.getKeyCode() == KeyEvent.VK_SPACE) {
                 	verticalSpeed = 1f; 
                 }
@@ -530,6 +561,7 @@ public class Nicolas extends JPanel {
 
   //Information If statement     
        
+       
         if(StartScreen){
         	character.x = 52;
             character.y = 52;
@@ -550,16 +582,15 @@ public class Nicolas extends JPanel {
             g.drawString("Shift in case of panic", 870, 400);
             g.drawString("R to Reset", 870, 450);
             g.drawString("Escape to Quit", 870, 500);
-            g.drawString("Space to Sprint", 870, 550);
             
             g.setColor(Color.WHITE);
             g.setFont(g.getFont().deriveFont(50));       
             g.drawString("SurvivalMaze", 500, 300);
             g.setFont(g.getFont().deriveFont(25));
-            g.drawString("InDev.2", 600, 325);
-            g.setFont(g.getFont().deriveFont(25));
             g.setColor(Color.WHITE);
             g.drawString("G to Start", 700, 400);
+            g.setFont(g.getFont().deriveFont(30));
+            g.drawString("InDev.3!", 600, 325);
         }
 
       
@@ -581,11 +612,13 @@ public class Nicolas extends JPanel {
             g.drawString("Shift in case of panic", 870, 400);
             g.drawString("R to Reset", 870, 450);
             g.drawString("Escape to Quit", 870, 500);
-            g.drawString("Space to Sprint", 870, 550);
             
         
-   //IF Statements        
-            
+   //IF Statements 
+         
+          
+           
+           
           
         if(DeathScreen){
         	g.setColor(Color.WHITE);
@@ -1176,10 +1209,26 @@ public class Nicolas extends JPanel {
              
         }
        
-        
+        if(up){
+        	if(right){
+        		upRight = true;
+        	}
+        	if(left){
+        		upLeft = true;
+        	}
+        }
+        if(down){
+        	if(right){
+        		downRight = true;
+        	}
+        	if(left){
+        		downLeft = true;
+        	}
+        }
         
   //If Statements for character movement
-
+        
+     
         if(jumping){
             character.y --;
         }
@@ -1197,10 +1246,48 @@ public class Nicolas extends JPanel {
                 character.y += verticalSpeed;
             }
             
-            
+            if(up){
+            	charW = 20;
+    			charH = 28;
+    			character = new Rectangle(character.x, character.y, charW, charH);
+    		}                             
+    		if(left){   
+    			charW = 28;
+    			charH = 20;
+    			character = new Rectangle(character.x, character.y, charW, charH);
+    		}                            
+    		if(right){
+    			charW = 28;
+    			charH = 20;
+    			character = new Rectangle(character.x, character.y, charW, charH);
+    		}                             
+    		if(down){ 
+    			charW = 20;
+    			charH = 28;
+    			character = new Rectangle(character.x, character.y, charW, charH);
+    		}
+    		if(downLeft){
+    			charW = 28;
+    			charH = 20;
+    			character = new Rectangle(character.x, character.y, charH, charW);
+    		}            
+    		if(downRight){
+    			charW = 28;
+    			charH = 20;
+    			character = new Rectangle(character.x, character.y, charH, charW); }
+    		            
+    		if(upLeft){  
+    			charW = 28;
+    			charH = 20;
+    			character = new Rectangle(character.x, character.y, charH, charW);
+    		}            
+    		if(upRight){ 
+    			charW = 28;
+    			charH = 20;
+    			character = new Rectangle(character.x, character.y, charH, charW);
+    		}
                
-               
-			           
+    		       
             
 
 
