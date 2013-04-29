@@ -55,6 +55,7 @@ public class Nicolas extends JPanel {
     public Rectangle Line24;
     public Rectangle Line25;
     public Rectangle Line26;
+    public Rectangle Line27;
     public Rectangle line3;
     public Rectangle line4;
     public Rectangle line5;
@@ -79,6 +80,7 @@ public class Nicolas extends JPanel {
     public Rectangle line24;
     public Rectangle line25;
     public Rectangle line26;
+    public Rectangle line27;
     public Rectangle Holder1;
     public Rectangle Holder2;
     public Rectangle Holder3;
@@ -222,6 +224,7 @@ public class Nicolas extends JPanel {
         Line24 = new Rectangle(1050, 0, LineW, 50);
         Line25 = new Rectangle(1100, 0, LineW, 450);
         Line26 = new Rectangle(1140, 0, LineW, 10);
+        Line27 = new Rectangle(273, 0, LineW, 10);
         
         
         //map2
@@ -237,6 +240,7 @@ public class Nicolas extends JPanel {
         line24 = new Rectangle(1050, 100, LineW, 100000);       
         line25 = new Rectangle(1100, 500, LineW, 100000);        
         line26 = new Rectangle(1140, 60, LineW, 100000);
+        line27 = new Rectangle(273, 20, LineW, 1000000);
         
 		
       
@@ -514,6 +518,7 @@ public class Nicolas extends JPanel {
         	g.fillRect(Line24.x, Line24.y, Line24.width, Line24.height);
         	g.fillRect(Line25.x, Line25.y, Line25.width, Line25.height);
         	g.fillRect(Line26.x, Line26.y, Line26.width, Line26.height);
+        	g.fillRect(Line27.x, Line17.y, Line17.width, Line27.height);
         	g.fillRect(line15.x, line15.y, line15.width, line15.height);
         	g.fillRect(line16.x, line16.y, line16.width, line16.height);
         	g.fillRect(line17.x, line17.y, line17.width, line17.height);
@@ -526,6 +531,7 @@ public class Nicolas extends JPanel {
         	g.fillRect(line24.x, line24.y, line24.width, line24.height);
         	g.fillRect(line25.x, line25.y, line25.width, line25.height);
         	g.fillRect(line26.x, line26.y, line26.width, line26.height);
+        	g.fillRect(line27.x, line17.y, line17.width, line27.height);
     
         }
         if(Map3){
@@ -1078,6 +1084,9 @@ public class Nicolas extends JPanel {
         if(character.intersects(Line26))  {
             Reset = true;
             StopReset1 = true;}
+        if(character.intersects(Line27))  {
+            Reset = true;            
+            StopReset1 = true;} 
         if(character.intersects(line15))  {
             Reset = true;             
             StopReset1 = true;}       
@@ -1114,8 +1123,11 @@ public class Nicolas extends JPanel {
         if(character.intersects(line26))  {
             Reset = true;            
             StopReset1 = true;} 
-       }
-        
+       if(character.intersects(line27))  {
+           Reset = true;            
+           StopReset1 = true;} 
+      
+}
 
        //If Statements for Invisible lines 
         
